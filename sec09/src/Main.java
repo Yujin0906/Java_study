@@ -52,8 +52,13 @@ public class Main {
         {
             total += lotto[j];
         }
-        System.out.printf("total = %d",total);
+        System.out.printf("total = %d\n",total);
 
+        total = 0;
+        for(int val : lotto) {
+            total += val;
+        }
+        System.out.printf("total = %d",total);
 
     }
     public static int FindValue(int[] arr, int value) {
