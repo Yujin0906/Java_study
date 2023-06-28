@@ -49,7 +49,6 @@ public class Person {
     public String GetName() {
         return this.name;
     }
-
     public String MakeNewName(String firstName, String lastName) {
         String tempName = String.format("%s %s",firstName, lastName);
         this.name= tempName;
