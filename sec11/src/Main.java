@@ -53,11 +53,53 @@ public class Main {
         else 
             System.out.println("yoo와 yoo1은 다릅니다.");
 
-        yoo1.age = 21;
-        if( yoo.equals(yoo1) == true )
-            System.out.println("yoo와 yoo1은 같습니다.");
-        else
-            System.out.println("yoo와 yoo1은 다릅니다.");
+        // primitive type
+        int[] arr = new int[5];
+
+        // 객체들의 배열도 생성이 가능함
+        Person[] arrObj = new Person[6];
+        arrObj[0] = yoo;   // Person
+        arrObj[1] = kang;  // Person
+        arrObj[2] = lee;   // Student
+        arrObj[3] = hwang; // Student
+        arrObj[4] = kim;   // Player
+        arrObj[5] = yoo1;  // Person
+
+        // 다형성
+
+        for(int i = 0; i< arrObj.length; i++) {
+//            isPlayer = arrObj[i] instanceof Player;
+//            if (isPlayer==true)
+//                System.out.printf("arrObj[%d] is instane of Player\n",i);
+//            else
+//                System.out.printf("arrObj[%d] is not instane of Player\n",i);
+
+            if(arrObj[i] instanceof Student) {
+                Student stu = (Student)arrObj[i]; // float b = 10f; int a = (int)b; 이것과 같음
+                stu.Upgrade();
+            }
+            arrObj[i].SayHello();
+        }
+
+        
+
+        Person choi = new Player(20, "최동원", "야구");
+        ((Player)choi).setSubject("야구"); // 원래 Player로 생성되었기 때문에 형변환하여 사용
+
+        ((Player)choi).SayHello();
+
+        // Person 타입이지만 Player의 SayHello(매개변수)를 호출함
+        choi.SayHello("나는 롯데자이언츠의 야구선수");
+
+        // 코드상에서는 가능(컴파일은 됨), 런타임시 에러 발생
+        Person jung = new Person(10,"정형돈");
+        ((Player)jung).setSubject("야구"); // Runtime Error
+
+//        yoo1.age = 21;
+//        if( yoo.equals(yoo1) == true )
+//            System.out.println("yoo와 yoo1은 같습니다.");
+//        else
+//            System.out.println("yoo와 yoo1은 다릅니다.");
 
 //        Person yoo2 = yoo;
 //        if( yoo.equals(yoo2) == true )
@@ -71,7 +113,7 @@ public class Main {
 //        yoo1.age = 35;
 //        System.out.println(yoo.age);
 
-        System.out.println( kim.toString() ); // 김영주(야구선수)
+        // System.out.println( kim.toString() ); // 김영주(야구선수)
 
 
     }
