@@ -10,10 +10,37 @@ public class Main {
 //        Thread thread2 = new Thread(fct);
 //        thread2.start();
 
-        FileWrite();
-        FileRead();
-    }
+//        FileWrite();
+//        FileRead();
 
+        try {
+//            Person yoo = new Person("유재석", 20);
+//            Person shin = new Person("신동엽", 25);
+//            Person kang = new Person("강호동", 22);
+//            Person kim = new Person("김종국", 21);
+//
+//            Family family = new Family();
+//            family.Add(yoo);
+//            family.Add(shin);
+//            family.Add(kang);
+//            family.Add(kim);
+//
+//            FileForObject.SaveFamily("family.fam",family);
+
+            Family loadedFamily = FileForObject.LoadFamily("family.fam");
+            loadedFamily.showAll();
+
+
+//            FileForObject.SavePerson("yoo.per", yoo);
+
+//            Person yoo = FileForObject.LoadPerson("yoo.per");
+//            System.out.println("파일로부터 얻은 객체");
+//            System.out.println(yoo);
+        }
+        catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+    }
     public static void FileWrite() {
         // FileWriter
         // FileReader
